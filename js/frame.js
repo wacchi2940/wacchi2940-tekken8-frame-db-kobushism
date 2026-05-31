@@ -37,7 +37,7 @@ async function updatePageTitle(characterId) {
             c => c.id === characterId
         );
     if (!character) return;
-    document.title = `${character.jpName} (${character.name}) フレーム表 | 鉄拳8フレーム情報DB`;
+    document.title = `${character.jpName} (${character.name}) フレーム表 - 鉄拳8フレーム情報DB KOBUSHISM`;
 
     // メタ情報
     const desc = document.querySelector(
