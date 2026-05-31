@@ -1,0 +1,1034 @@
+/* =========================================
+    ROOT VARIABLES
+========================================= */
+:root {
+    /* Base */
+    --bg-color: #f3f4f6;
+    --control-bg: #ffffff;
+    --border-color: rgba(127,29,29,0.12);
+    --text-color: #1f2937;
+
+    /* Table / Panel */
+    --container-bg: #ffffff;
+    --row-even-bg: #fcfcfd;
+    --row-hover-bg: rgba(220,38,38,0.06);
+
+    --table-head-bg: #f3f4f6;
+    --sub-header-bg: #eceef1;
+    --sub-header-text: #374151;
+
+    --sticky-bg: rgba(255,255,255,0.96);
+
+    /* Chip / Button */
+    --chip-bg: #ffffff;
+    --chip-text: #374151;
+
+    /* Card */
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+
+    /* Accent */
+    --accent-color: #dc2626;
+    --accent-hover: #ef4444;
+    --accent-dark: #991b1b;
+
+    /* Hover */
+    --hover-bg: rgba(220,38,38,0.08);
+
+    /* Scrollbar */
+    --scrollbar-thumb: #c7c9cf;
+    --scrollbar-track: #eceef1;
+
+    /* Glow */
+    --glow-pink: 0 0 10px rgba(220,38,38,0.12);
+    --glow-blue: 0 0 8px rgba(59,130,246,0.08);
+
+    --focus-color: var(--accent-color);
+
+    /* Radius */
+    --radius-sm: 3px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+
+    /* Shadow */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 2px 10px rgba(0,0,0,0.15);
+    --shadow-lg: 0 4px 20px rgba(0,0,0,0.25);
+
+    /* Transition */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+
+    /* Layout */
+    --control-height: 44px;
+
+    /* z-index */
+    --z-sticky: 100;
+    --z-overlay: 500;
+    --z-drawer: 600;
+    --z-popup: 700;
+
+    /* Column Width */
+    --col-no: 66px;
+    --col-name: 426px;
+    --col-command: 426px;
+    --col-parsed: 426px;
+    --col-judge: 316px;
+    --col-damage: 316px;
+    --col-startup: 90px;
+    --col-active: 104px;
+    --col-total: 104px;
+    --col-guard: 100px;
+    --col-hit: 238px;
+    --col-counter: 238px;
+    --col-note: 602px;
+}
+
+/* =========================================
+    DARK MODE
+========================================= */
+.dark-mode {
+    /* Base */
+    --bg-color: #050505;
+    --control-bg: #2d2d2d;
+    /* --border-color: #27272a; */
+    --border-color: rgb(95 62 57 / 0.3);
+    --text-color: #e0e0e0;
+
+    /* Table / Panel */
+    --container-bg: #1a1a1a;
+    --row-even-bg: #1a1a1a;
+    /* --row-hover-bg: #444444; */
+    --row-hover-bg: rgba(255,45,111,0.08);
+    
+    --table-head-bg: #2d2d2d;
+    --sub-header-bg: #2d2d2d;/*8e063b*/
+    --sub-header-text: #e0e0e0;
+
+    --sticky-bg: #2d2d2d;
+
+    /* Chip / Button */
+    --chip-bg: #2d2d2d;
+    --chip-text: #e0e0e0;
+
+    /* Card */
+    --card-bg: #1a1a1a;
+    --card-border: #27272a;
+
+    /* Accent */
+    --accent-color: #dc2626; /*f80964*/
+    --accent-hover: #f87171;
+    --accent-dark: #7f1d1d;
+
+    /* Hover */
+    --hover-bg: rgba(239,68,68,0.08);
+
+    /* Scrollbar */
+    --scrollbar-thumb: #555555;
+    --scrollbar-track: #2d2d2d;
+
+    /* Glow */
+    --glow-pink: 0 0 8px rgba(255,45,111,0.35);
+    --glow-blue: 0 0 8px rgba(80,180,255,0.18);
+
+    --focus-color: var(--accent-color);
+}
+
+/* =========================================
+    BASE
+========================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--scrollbar-thumb)
+        var(--scrollbar-track);
+}
+/* ページの基本設定 */
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}
+
+/* =========================================
+    SCROLLBAR
+========================================= */
+/* 全体のスクロールバー */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+/* トラック（バーの背景） */
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+/* スライダー部分（つまみ） */
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 4px;
+}
+/* ホバー時のスライダー */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* =========================================
+    FOCUS(キーボード向け設定？)
+========================================= */
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+}
+
+/* =========================================
+    HEADER
+========================================= */
+/* ヘッダー基本 */
+.sticky-controls {
+    position: sticky; /* 固定表示 */
+    top: 0;
+    z-index: var(--z-sticky);
+    background: var(--bg-color);
+    padding-bottom: 10px;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+/* ヘッダー上段 */
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+    BUTTONS
+========================================= */
+/* コントロールボタン<menu> */
+.control-button {
+    width: var(--control-height);
+    height: var(--control-height);
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--control-bg);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition:
+        background-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+.control-button:hover {
+    background: var(--hover-bg);
+}
+.control-button:active {
+    transform: scale(0.96);
+}
+.control-button .material-symbols-outlined {
+    font-size: 22px;
+}
+
+/* 設定ボタン<settings> */
+.settings-button {
+    margin-left: auto;
+}
+
+/* 検索フィルターボタン<tune> */
+.search-filter-panel button {
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-color);
+    text-align: left;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+.search-filter-panel button:hover {
+    background: var(--hover-bg);
+}
+
+/* =========================================
+    SEARCH
+========================================= */
+/* 検索ボックス全体 */
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    max-width: 400px;
+    height: var(--control-height);
+    display: flex;
+    align-items: center;
+    padding: 0 12px 0 16px;
+    border-radius: var(--radius-lg);
+    background: var(--control-bg);
+    box-shadow: var(--shadow-sm);
+}
+/* 入力欄 */
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 14px;
+    padding-right: 40px;
+}
+/* 検索ボックス内の右側アイコン群を、入力欄の上に重ねて配置する */
+.search-actions {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* =========================================
+    SEARCH FILTER PANEL
+========================================= */
+/* 検索対象表示欄 */
+.search-filter-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 180px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 12px;
+    background: var(--control-bg);
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-popup);
+}
+.search-filter-panel.open {
+    display: flex;
+}
+
+/* =========================================
+    SETTINGS PANEL
+========================================= */
+/* 設定メニュー */
+.settings-panel {
+    position: absolute;
+    top: 56px;
+    right: 10px;
+    width: 220px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--control-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+        opacity var(--transition-normal),
+        transform var(--transition-normal);
+    z-index: var(--z-popup);
+}
+.settings-panel.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* =========================================
+    MENU OVERLAY
+========================================= */
+/* オーバーレイ */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+    z-index: var(--z-overlay);
+}
+.menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* =========================================
+    DRAWER
+========================================= */
+/* 左サイドドロワー */
+.menu-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    padding: 20px;
+    overflow-y: auto;
+    background: var(--container-bg);
+    box-shadow: 2px 0 12px rgba(0,0,0,0.25);
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+    z-index: var(--z-drawer);
+}
+.menu-drawer.open {
+    transform: translateX(0);
+}
+/* =========================================
+    MENU
+========================================= */
+/* 左サイドメニュー */
+.menu-section {
+    margin-bottom: 28px;
+}
+.menu-title {
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.6;
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+.menu-link {
+    display: block;
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition:
+        background-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+.menu-link:hover {
+    background: var(--row-hover-bg);
+    transform: translateX(4px);
+}
+.menu-link.active-character{
+    color:var(--text-color);
+    font-weight:bold;
+    background:var(--accent-dark);
+    border-left:3px solid var(--accent-color);
+    text-shadow:0 0 8px rgba(239,68,68,.6);
+}
+/* =========================================
+    SWITCH
+========================================= */
+/* トグルスイッチ コンテナ */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+/* トグルスイッチ ラベル */
+.switch-label {
+    min-width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.9;
+}
+/* トグルスイッチ スタイル */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+/* トグルスイッチ 丸の背景部分 */
+.toggle-switch {
+    position: relative;
+
+    width: 44px;
+    height: 22px;
+
+    border-radius: 11px;
+
+    background: #ccc;
+
+    transition:
+        background-color var(--transition-normal);
+}
+/* トグルスイッチ 丸 */
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform var(--transition-normal);
+}
+/* トグルスイッチ 元となるチェックボックス */
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"]:checked + .toggle-switch {
+    background: var(--accent-color);
+}
+input[type="checkbox"]:checked + .toggle-switch::after {
+    transform: translateX(22px);
+}
+
+/* =========================================
+    CARD CONTROLS
+========================================= */
+/* 開く/閉じるボタン(mobileView専用) */
+.card-controls {
+    display: flex;
+}
+.card-controls button {
+    width: 96px;
+    height: var(--control-height);
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--control-bg);
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+}
+
+/* =========================================
+    CHIP
+========================================= */
+/* ヘッダー下段全体のスタイル */
+.chip-container {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 5px 0 10px;
+    -webkit-overflow-scrolling: touch;
+}
+/* チップ コンテナ */
+.nav-chip {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    background: var(--chip-bg);
+    color: var(--chip-text);
+    font-size: 14px;
+    cursor: pointer;
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+.nav-chip:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* =========================================
+    TABLE
+========================================= */
+/* 表エリア コンテナ */
+.table-container {
+    overflow: auto;
+    flex-grow: 1;
+    position: relative;
+    border-radius: 8px;
+    background: var(--container-bg);
+    box-shadow: var(--shadow-md);
+    scroll-behavior: smooth;
+}
+/* テーブル（表全体） */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    white-space: nowrap;
+    color: var(--text-color);
+    text-align: left;
+}
+/* 行全体 */
+tr:nth-child(even) {
+    background: var(--row-even-bg);
+}
+/* ヘッダーとセル */
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+/* ヘッダー */
+th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--table-head-bg);
+    color: var(--text-color);
+    cursor: pointer;
+}
+/* 行全体のマウスオーバー(行hover) */
+tbody tr:hover td {
+    background-color: var(--row-hover-bg);
+}
+/* 左アクセント */
+tbody tr td:first-child {
+    position: relative;
+}
+tbody tr:hover td:first-child::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 4px;
+    height: calc(100% + 2px);
+    border-radius: 0 2px 2px 0;
+    background: var(--accent-color);
+    box-shadow: var(--glow-pink);
+}
+
+/* =========================================
+    COLUMN WIDTH
+========================================= */
+/* 列幅の個別設定 */
+th[data-key="no"], td[data-key="no"] {
+    /* inline-size:var(--col-no); */
+    width: var(--col-no); min-width: var(--col-no); max-width: var(--col-no);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; /* 絶対1行設定 */
+}
+th[data-key="name"], td[data-key="name"] {
+    /* inline-size:var(--col-name); */
+    width: var(--col-name); min-width: var(--col-name); max-width: var(--col-name);
+    white-space: normal; word-break: break-all; /* 文字列整形漏れの保険 */
+}
+th[data-key="command"], td[data-key="command"] {
+    /* inline-size:var(--col-command); */
+    width: var(--col-command); min-width: var(--col-command); max-width: var(--col-command);
+    white-space: normal; word-break: break-all;
+}
+th[data-key="parsed"], td[data-key="parsed"] {
+    /* inline-size:var(--col-parsed); */
+    width: var(--col-parsed); min-width: var(--col-parsed); max-width: var(--col-parsed);
+    white-space: normal; word-break: break-all;
+}   
+th[data-key="judge"], td[data-key="judge"] {
+    /* inline-size:var(--col-judge); */
+    width: var(--col-judge); min-width: var(--col-judge); max-width: var(--col-judge);
+    white-space: normal; word-break: break-all;
+}
+th[data-key="damage"], td[data-key="damage"] {
+    /* inline-size:var(--col-damage); */
+    width: var(--col-damage); min-width: var(--col-damage); max-width: var(--col-damage);
+    white-space: normal; word-break: break-all;
+}
+th[data-key="startup"], td[data-key="startup"] {
+    /* inline-size:var(--col-startup); */
+    width: var(--col-startup); min-width: var(--col-startup); max-width: var(--col-startup);
+    white-space: normal; word-break: break-all;
+}
+th[data-key="active"], td[data-key="active"] {
+    /* inline-size:var(--col-active); */
+    width: var(--col-active); min-width: var(--col-active); max-width: var(--col-active);
+    white-space: normal; word-break: break-all;
+}
+th[data-key="total"], td[data-key="total"] {
+    /* inline-size:var(--col-total); */
+    width: var(--col-total); min-width: var(--col-total); max-width: var(--col-total);
+    white-space: normal; word-break: break-all;
+}
+th[data-key="guard"], td[data-key="guard"] {
+    /* inline-size:var(--col-guard); */
+    width: var(--col-guard); min-width: var(--col-guard); max-width: var(--col-guard);
+    white-space: normal; word-break: break-all; text-align: right;
+}
+th[data-key="hit"], td[data-key="hit"] {
+    /* inline-size:var(--col-hit); */
+    width: var(--col-hit); min-width: var(--col-hit); max-width: var(--col-hit);
+        white-space: normal; word-break: break-all; text-align: right;
+}
+th[data-key="counter"], td[data-key="counter"] {
+    /* inline-size:var(--col-counter); */
+    width: var(--col-counter); min-width: var(--col-counter); max-width: var(--col-counter);
+    white-space: normal; word-break: break-all; text-align: right;
+}
+th[data-key="note"], td[data-key="note"] {
+    /* inline-size:var(--col-note); */
+    width: var(--col-note); min-width: var(--col-note); max-width: var(--col-note);
+    white-space: normal; word-break: break-all;
+}
+/* 文字サイズの個別設定 */
+td[data-key="hit"], td[data-key="counter"], td[data-key="note"] {
+    font-size: 14px;
+}
+
+/* =========================================
+    UTIL
+========================================= */
+/* columns用 */
+.text-col {
+    font-variant-numeric: tabular-nums;
+}
+/* セル結合 */
+.merged-cell-content {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+    STICKY COLUMN(列固定設定)
+========================================= */
+.sticky-column {
+    position: sticky !important;
+    z-index: 5 !important;
+    background: var(--sticky-bg) !important;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+th.sticky-column {
+    z-index: 15 !important;
+    background: var(--table-head-bg) !important;
+}
+.sticky-column-right {
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+    SUB HEADER(サブヘッダー設定)
+========================================= */
+.sub-header {
+    background: var(--sub-header-bg) !important;
+    color: var(--sub-header-text);
+    font-weight: bold;
+    cursor: pointer;
+}
+.sub-header td {
+    padding: 0;
+    background: var(--sub-header-bg) !important;
+}
+.sub-header-content {
+    position: sticky;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    min-width: 200px;
+    padding: 8px 12px;
+    background: var(--sub-header-bg);
+    z-index: 6;
+}
+/* サブヘッダーの先頭に開閉を示すマーク */
+.sub-header-content::before {
+    content: '▼ ';
+    transition: transform 0.2s;
+}
+.sub-header.collapsed .sub-header-content::before {
+    transform: rotate(-90deg);
+}
+/* サブヘッダーの先頭に縦のライン */
+.menu-title,.sub-header-content {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+}
+.hidden-row {
+    display: none !important;
+}
+
+/* =========================================
+    テーブル補助UI
+========================================= */
+/* compact表示2段設定 */
+.stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+.stack-top {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2px;
+    margin-bottom: 2px;
+    opacity: 0.9;
+}
+.stack-bottom {
+    padding-top: 2px;
+}
+/* マウスオーバーTooltip系 */
+.name-cell-hint, .frame-tooltip-token{
+    cursor: help;
+    text-decoration: underline dotted #ccc;
+}
+.name-cell-hint {
+    text-decoration: underline dotted #888;
+}
+/* コマンド画像表示 */
+.command-icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    margin-right: 1px;
+}
+.command-text {
+    vertical-align: middle;
+}
+/* 備考欄コマンド画像表示 */
+.note-command {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+}
+/* ステータスバッチ表示 */
+.status-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    width: fit-content;
+}
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 1px #333;
+    cursor: help;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+    MOBILE CARD(MobileViewのカード表示)
+========================================= */
+.mobile-card {
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.mobile-header:active {
+    opacity: 0.7;
+}
+.mobile-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.mobile-name {
+    font-size: 11px;
+    font-weight: bold;
+    opacity: 0.7;
+}
+.mobile-parsed {
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mobile-body {
+    margin-top: 6px;
+}
+.mobile-card.collapsed .mobile-body {
+    display: none;
+}
+.mobile-toggle-icon {
+    transition: transform 0.2s;
+}
+.mobile-card:not(.collapsed) .mobile-toggle-icon {
+    transform: rotate(90deg);
+}
+.mobile-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+.mobile-row > div {
+    flex: 1;
+}
+.mobile-row.labeled > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.mobile-label {
+    font-size: 10px;
+    opacity: 0.6;
+}
+.mobile-value {
+    font-size: 12px;
+}
+.mobile-note {
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px solid var(--border-color);
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* ==============================
+Scroll To Top Button
+============================== */
+.scroll-top-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(40, 40, 40, 0.45);
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        background 0.2s ease;
+}
+.scroll-top-button .material-symbols-outlined {
+    font-size: 28px;
+    line-height: 1;
+    user-select: none;
+    
+}
+/* 表示状態 */
+.scroll-top-button.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+/* hover */
+.scroll-top-button:hover {
+    background: rgba(40, 40, 40, 0.7);
+}
+/* dark mode微調整 */
+body.dark-mode .scroll-top-button {
+    background: rgba(255,255,255,0.18);
+    color: white;
+}
+body.dark-mode .scroll-top-button:hover {
+    background: rgba(255,255,255,0.28);
+}
+
+/* ==============================
+Text Selection
+============================== */
+::selection {
+    background: var(--accent-color);
+    color: inherit;
+}
+/* Firefox対応 */
+::-moz-selection {
+    background: var(--accent-color);
+    color: inherit;
+}
+
+/* =========================================
+    MOBILE
+========================================= */
+@media (min-width: 769px) {
+    .mobile-card {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    /* 予防処置(なくても問題ない？) */
+    .header-controls {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .toggle-group {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex: 0 0 auto;
+        min-width: 0;
+        white-space: nowrap;
+    }
+    .settings-group {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex: 0 0 auto;
+    }
+    #cardControls {
+        flex: 0 0 auto;
+    }
+    .toggle-label {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    /* 必須(無いとバランス崩れる) */
+    .search-box {
+        max-width: none;
+    }
+    .status-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px;
+    }
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 18px;
+        max-width: 48px;
+        padding: 0 3px;
+        font-size: 11px;
+        line-height: 1.8;
+    }
+    .scroll-top-button {
+        width: 44px;
+        height: 44px;
+    }
+}

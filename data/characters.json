@@ -1,0 +1,354 @@
+[
+  {
+    "name": "Alisa",
+    "jpName": "アリサ",
+    "id": "alisa",
+    "image": "Alisa.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Asuka",
+    "jpName": "飛鳥",
+    "id": "asuka",
+    "image": "Asuka.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Azucena",
+    "jpName": "アズセナ",
+    "id": "azucena",
+    "image": "Azucena.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Bryan",
+    "jpName": "ブライアン",
+    "id": "bryan",
+    "image": "Bryan.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Claudio",
+    "jpName": "クラウディオ",
+    "id": "claudio",
+    "image": "Claudio.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Devil Jin",
+    "jpName": "デビル仁",
+    "id": "deviljin",
+    "image": "DevilJin.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Dragunov",
+    "jpName": "ドラグノフ",
+    "id": "dragunov",
+    "image": "Dragunov.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Feng",
+    "jpName": "フェン",
+    "id": "feng",
+    "image": "Feng.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Hwoarang",
+    "jpName": "ファラン",
+    "id": "hwoarang",
+    "image": "Hwoarang.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Jack-8",
+    "jpName": "ジャック8",
+    "id": "jack8",
+    "image": "Jack8.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Jin",
+    "jpName": "仁",
+    "id": "jin",
+    "image": "Jin.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Jun",
+    "jpName": "準",
+    "id": "jun",
+    "image": "Jun.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Kazuya",
+    "jpName": "一八",
+    "id": "kazuya",
+    "image": "Kazuya.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "King",
+    "jpName": "キング",
+    "id": "king",
+    "image": "King.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Kuma",
+    "jpName": "クマ",
+    "id": "kuma",
+    "image": "Kuma.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Panda",
+    "jpName": "パンダ",
+    "id": "panda",
+    "image": "Panda.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Lars",
+    "jpName": "ラース",
+    "id": "lars",
+    "image": "Lars.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Law",
+    "jpName": "ロウ",
+    "id": "law",
+    "image": "Law.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Lee",
+    "jpName": "リー",
+    "id": "lee",
+    "image": "Lee.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Leo",
+    "jpName": "レオ",
+    "id": "leo",
+    "image": "Leo.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Leroy",
+    "jpName": "リロイ",
+    "id": "leroy",
+    "image": "Leroy.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Lili",
+    "jpName": "リリ",
+    "id": "lili",
+    "image": "Lili.webp",
+    "status": "ready",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Nina",
+    "jpName": "ニーナ",
+    "id": "nina",
+    "image": "Nina.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Paul",
+    "jpName": "ポール",
+    "id": "paul",
+    "image": "Paul.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Raven",
+    "jpName": "レイブン",
+    "id": "raven",
+    "image": "Raven.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Reina",
+    "jpName": "麗奈",
+    "id": "reina",
+    "image": "Reina.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Shaheen",
+    "jpName": "シャヒーン",
+    "id": "shaheen",
+    "image": "Shaheen.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Steve",
+    "jpName": "スティーブ",
+    "id": "steve",
+    "image": "Steve.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Victor",
+    "jpName": "ヴィクター",
+    "id": "victor",
+    "image": "Victor.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Xiaoyu",
+    "jpName": "シャオユウ",
+    "id": "xiaoyu",
+    "image": "Xiaoyu.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Yoshimitsu",
+    "jpName": "吉光",
+    "id": "yoshimitsu",
+    "image": "Yoshimitsu.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Zafina",
+    "jpName": "ザフィーナ",
+    "id": "zafina",
+    "image": "Zafina.webp",
+    "status": "prep",
+    "season": "BASE GAME"
+  },
+  {
+    "name": "Eddy",
+    "jpName": "エディ",
+    "id": "eddy",
+    "image": "Eddy.webp",
+    "status": "prep",
+    "season": "SEASON 1"
+  },
+  {
+    "name": "Lidia",
+    "jpName": "リディア",
+    "id": "lidia",
+    "image": "Lidia.webp",
+    "status": "prep",
+    "season": "SEASON 1"
+  },
+  {
+    "name": "Heihachi",
+    "jpName": "平八",
+    "id": "heihachi",
+    "image": "Heihachi.webp",
+    "status": "prep",
+    "season": "SEASON 1"
+  },
+  {
+    "name": "Clive",
+    "jpName": "クライヴ",
+    "id": "clive",
+    "image": "Clive.webp",
+    "status": "prep",
+    "season": "SEASON 1"
+  },
+  {
+    "name": "Anna",
+    "jpName": "アンナ",
+    "id": "anna",
+    "image": "Anna.webp",
+    "status": "ready",
+    "season": "SEASON 2"
+  },
+  {
+    "name": "Fahkumram",
+    "jpName": "ファーカムラム",
+    "id": "fahkumram",
+    "image": "Fahkumram.webp",
+    "status": "ready",
+    "season": "SEASON 2"
+  },
+  {
+    "name": "Armor King",
+    "jpName": "アーマーキング",
+    "id": "armorking",
+    "image": "ArmorKing.webp",
+    "status": "ready",
+    "season": "SEASON 2"
+  },
+  {
+    "name": "Miaryzo",
+    "jpName": "ミアリズ",
+    "id": "miaryzo",
+    "image": "MiaryZo.webp",
+    "status": "ready",
+    "season": "SEASON 2"
+  },
+  {
+    "name": "Kunimitsu",
+    "jpName": "州光",
+    "id": "kunimitsu",
+    "image": "Kunimitsu.webp",
+    "status": "ready",
+    "season": "SEASON 3"
+  },
+  {
+    "name": "Bob",
+    "jpName": "ボブ",
+    "id": "bob",
+    "image": "Bob.webp",
+    "status": "prep",
+    "season": "SEASON 3"
+  },
+  {
+    "name": "Roger Jr.",
+    "jpName": "ロジャーJr",
+    "id": "rogerjr",
+    "image": "RogerJr.webp",
+    "status": "prep",
+    "season": "SEASON 3"
+  },
+  {
+    "name": "Yujiro Hanma",
+    "jpName": "範馬勇次郎",
+    "id": "yujirohanma",
+    "image": "YujiroHanma.webp",
+    "status": "prep",
+    "season": "SEASON 3"
+  }
+]

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description">
+    <title>鉄拳8フレーム情報DB KOBUSHISM</title>
+    
+    <link rel="stylesheet" href="css/frame.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+
+</head>
+<body class="dark-mode">
+
+    <div class="sticky-controls">
+        <!-- 背景暗転 -->
+        <div id="menuOverlay" class="menu-overlay"></div>
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <!-- ナビ -->
+            <button id="menuButton" class="control-button menu-button">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </button>
+
+            <!-- 検索 -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="検索 (技名, コマンド, 発生, ステータス...)">
+                <div class="search-actions">
+                    <button id="searchFilterButton"
+                            class="control-button icon-button">
+                        <span class="material-symbols-outlined">
+                            tune
+                        </span>
+                    </button>
+                </div>
+                <!-- 検索対象パネル -->
+                <div id="searchFilterPanel" class="search-filter-panel">
+                    <button data-target="all">全体</button>
+                    <button data-target="name">技名</button>
+                    <button data-target="command">コマンド</button>
+                    <button data-target="judge">判定</button>
+                    <button data-target="damage">ダメージ</button>
+                    <button data-target="startup">発生</button>
+                    <button data-target="guard">ガード</button>
+                    <button data-target="hit">ヒット</button>
+                    <button data-target="counter">カウンター</button>
+                    <button data-target="status">ステータス</button>
+                    <button data-target="note">備考</button>
+                </div>
+            </div>
+
+            <!-- カード開閉 -->
+            <div id="cardControls" class="card-controls">
+                <button id="toggleCardsButton">すべて開く</button>
+            </div>
+
+            <!-- 設定 -->
+            <button id="settingsButton" class="control-button settings-button">
+                <span class="material-symbols-outlined">
+                    settings
+                </span>
+            </button>
+        </div>
+
+        <!-- サイドメニュー -->
+        <div id="menuDrawer" class="menu-drawer">
+            <div class="menu-section">
+                <a href="index.html" class="menu-link">TOPへ戻る</a>
+                <a href="guide.html" class="menu-link">フレームデータ項目の見方</a>
+            </div>
+            <div class="menu-section">
+                <div class="menu-title">
+                    CHARACTER
+                </div>
+                <div id="characterMenu"></div>
+            </div>
+
+            <!-- <div class="menu-section">
+                <div class="menu-title">
+                    SYSTEM
+                </div>
+                <a href="" class="menu-link">
+                    共通システム
+                </a>
+                <a href="" class="menu-link">
+                    用語集
+                </a>
+            </div> -->
+
+        </div>
+
+        <!-- 設定メニュー -->
+        <div class="settings-panel" id="settingsPanel">
+            <div class="controls">
+                <label class="toggle-container">
+                    <input type="checkbox" id="viewModeToggle" checked>
+                    <div class="toggle-switch"></div>
+                </label>
+                <span id="viewModeLabel" class="switch-label">コンパクト表示</span>
+            </div>
+            <div class="controls">
+                <label class="toggle-container">
+                    <input type="checkbox" id="themeModeToggle" checked>
+                    <div class="toggle-switch"></div>
+                </label>
+                <span id="themeModeLabel" class="switch-label">ダークモード</span>
+            </div>
+        </div>
+        <div id="chip-container" class="chip-container"></div>
+    </div>
+
+    <!-- フレームテーブル -->
+    <div class="table-container" id="main-container">
+        <table id="data-table">
+            <thead>
+                <tr id="table-header"></tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+
+    <!-- スクロールを先頭に -->
+    <button id="scrollToTopButton" class="scroll-top-button">
+        <span class="material-symbols-outlined">
+            arrow_upward
+        </span>
+    </button>
+
+    <!-- ダミー要素：テキスト幅測定用 -->
+    <div id="text-measurer" style="position: absolute; visibility: hidden; white-space: nowrap; font-family: inherit; font-size: 16px; display: inline-block;"></div>
+
+    <!-- 不要なら削除 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"></script> -->
+
+    <script src="js/frame.js"></script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #050505;
+    --text-main: #f1f5f9;
+    --text-muted: #a1a1aa;
+    --text-dark: #52525b;
+    --primary-red: #dc2626;
+    --primary-red-hover: #ef4444;
+    --card-bg: #0c0a09;
+    --border-color: #1c1917;
+    --nav-bg: rgba(0, 0, 0, 0.95);
+    --footer-bg: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Text selection style */
+::selection {
+    background-color: var(--primary-red);
+    color: white;
+}
+
+/* Font Helpers */
+.oswald {
+    font-family: 'Oswald', sans-serif;
+}
+.tekken-font {
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: -0.05em;
+}
+
+/* Navigation */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid rgba(127, 29, 29, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--primary-red);
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.nav-logo:hover {
+    color: var(--primary-red-hover);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-links .active {
+    color: var(--primary-red-hover);
+}
+
+.nav-links span {
+    color: var(--primary-red-hover);
+}
+
+/* Animated Hero Background */
+@keyframes hero-bg-anim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-section {
+    position: relative;
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #18181b;
+    background: linear-gradient(-45deg, #000000, #3a0000, #0a000d, #000000);
+    background-size: 400% 400%;
+    animation: hero-bg-anim 15s ease infinite;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+}
+
+@media (min-width: 768px) {
+    .hero-title { font-size: 3rem; }
+}
+
+.hero-subtitle {
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+/* Main Content Container */
+main {
+    flex-grow: 1;
+    max-width: 960px; /* 少し狭くして読みやすく */
+    margin: 0 auto;
+    padding: 40px 16px;
+    width: 100%;
+}
+
+/* Content Card Styles */
+.info-card {
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+    .info-card { padding: 32px; }
+}
+
+.red-accent-border {
+    border-left: 4px solid var(--primary-red);
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #f1f5f9;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.card-title.red { color: var(--primary-red-hover); }
+.card-title.zinc { color: #d4d4d8; }
+
+.title-accent {
+    width: 6px;
+    height: 18px;
+    display: inline-block;
+}
+.title-accent.red { background-color: var(--primary-red); }
+.title-accent.zinc { background-color: #52525b; }
+
+.card-text {
+    font-size: 0.875rem;
+    color: #d4d4d8;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+/* ↓GUIDEページ専用↓ */
+
+/* Data Display Grid */
+.data-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+@media (min-width: 640px) {
+    .data-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.data-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #18181b;
+    padding: 16px;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+}
+
+.data-box:hover {
+    border-color: #3f3f46;
+}
+
+.data-title {
+    font-weight: bold;
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+    display: block;
+    border-bottom: 1px solid #27272a;
+    padding-bottom: 6px;
+}
+
+.data-desc {
+    font-size: 0.8125rem;
+    color: #a1a1aa;
+    line-height: 1.5;
+}
+
+/* Status Icon Styles */
+.status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: rgba(5, 5, 5, 0.8);
+    border: 1px solid #18181b;
+    padding: 12px 16px;
+    border-radius: 4px;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    min-width: 68px;
+    height: 24px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 1px #333;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    letter-spacing: 0.02em;
+}
+
+.status-badge-text {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    font-size: 11px;
+    font-weight: 900;
+    color: white;
+    background-color: #18181b;
+    border: 1px solid #3f3f46;
+    padding: 0 6px;
+    border-radius: 2px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.status-info {
+    flex-grow: 1;
+}
+
+.status-name {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #e2e8f0;
+    margin-bottom: 4px;
+}
+
+.status-detail {
+    font-size: 0.75rem;
+    color: #a1a1aa;
+    line-height: 1.6;
+}
+
+/* Icon Colors */
+.bg-hm { background-color: #2196F3; }
+.bg-rh { background-color: #2196F3; }
+.bg-lh { background-color: #2196F3; }
+.bg-tr { background-color: #FF5252; }
+.bg-pw { background-color: #C62828; }
+.bg-ra { background-color: #C62828; }
+.bg-er { background-color: #FF8F00; }
+.bg-js { background-color: #D81B60; }
+.bg-cs { background-color: #00838F; }
+.bg-wb { background-color: #00C853; }
+.bg-fb { background-color: #FFD600; }
+.bg-he { background-color: #B000FF; }
+.bg-hb { background-color: #B000FF; }
+.bg-ht { background-color: #7C4DFF; }
+.bg-hd { background-color: #7C4DFF; }
+.bg-hs { background-color: #7C4DFF; }
+
+
+/* ↑GUIDEページ専用↑ */
+
+/* Button to go back */
+.back-btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    background-color: rgba(69, 10, 10, 0.8);
+    color: var(--primary-red);
+    border: 1px solid rgba(127, 29, 29, 0.5);
+    border-radius: 4px;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.back-btn:hover {
+    background-color: #7f1d1d;
+    color: white;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #09090b;
+    background-color: var(--footer-bg);
+    padding: 32px 0;
+    margin-top: 20px;
+}
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    text-align: center;
+}
+.footer-text {
+    color: #3f3f46;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.625;
+}

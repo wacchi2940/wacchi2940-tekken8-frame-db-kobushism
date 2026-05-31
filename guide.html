@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIDE - 鉄拳8フレーム情報DB KOBUSHISM</title>
+    
+    <link rel="stylesheet" href="css/guide.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo oswald tekken-font">鉄拳8フレーム情報DB KOBUSHISM</a>
+            <div class="nav-links">
+                <a href="index.html" class="menu-link">CHARACTER</a>
+                <a href="about.html" class="menu-link">ABOUT</a>
+                <span>GUIDE</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Header Section -->
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-title oswald tekken-font">サイトの使い方</h2>
+            <p class="hero-subtitle">画面やアイコンの見方・説明</p>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main>
+        
+        <!-- Section 1: 画面構成について -->
+        <section class="info-card red-accent-border">
+            <h3 class="card-title zinc">
+                <span class="title-accent red"></span>
+                画面全体の構成
+            </h3>
+            <p class="card-text">
+                各キャラクターのフレームデータは、PC表示(2560x1440)を基準に作成されています。<br>
+                スマートフォン/タブレット端末で閲覧する場合は、一部情報が表示されない場合があることにご注意ください。
+            </p>
+            
+            <div class="data-grid">
+                <div class="data-box">
+                    <span class="data-title">検索機能</span>
+                    <p class="data-desc">技名/コマンド/発生フレーム/ステータスなどを入力することで、リストを絞り込み表示します。<br>全体/項目ごとに検索対象を変更できます。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">設定</span>
+                    <p class="data-desc">リストの表示モードや色合いを変更できます。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">カテゴリーボタン</span>
+                    <p class="data-desc">「ヒート関連技」「通常技」「しゃがみ中の技」など、技のカテゴリートップまでスクロールを遷移します。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">アコーディオン (▼)</span>
+                    <p class="data-desc">リスト内の「▼ヒート関連技」などのカテゴリーをクリックすると、そのグループの技をまとめて開閉することができます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 各項目の見方 -->
+        <section class="info-card">
+            <h3 class="card-title zinc">
+                <span class="title-accent zinc"></span>
+                フレームデータ項目の見方
+            </h3>
+            <p class="card-text">
+                フレームデータに並んでいる数値や用語の意味について解説します。
+            </p>
+
+            <div class="data-grid">
+                <div class="data-box">
+                    <span class="data-title">No.</span>
+                    <p class="data-desc">ゲーム内コマンドリストに記載された番号です。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">技名</span>
+                    <p class="data-desc">ゲーム内コマンドリストに記載された技名です、マウスオーバーで「読み」を表示します。<br>
+                        特殊行動に派生する場合は「～背向け」のような形式で記載、派生技の途中段階は(1),(2)…のように数字を記載しています。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">コマンド</span>
+                    <p class="data-desc">技を成立させるために必要な方向要素と攻撃ボタンの組み合わせです。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">判定</span>
+                    <p class="data-desc">攻撃判定の属性です、成立に条件がある場合は丸括弧付きで記載しています。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">ダメージ</span>
+                    <p class="data-desc">相手に与える基礎ダメージ量です、補正100%時の値が記載されています。<br>
+                    成立に条件がある場合は丸括弧付きで記載しています。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">発生</span>
+                    <p class="data-desc">コマンド入力から攻撃判定が出るまでの時間を示します。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">持続</span>
+                    <p class="data-desc">攻撃の判定が持続している時間を示します。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">全体 (スカ硬直)</span>
+                    <p class="data-desc">コマンド入力から空振りした際の硬直が解けるまでの全体時間を示します。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">ガード / ヒット / カウンター</span>
+                    <p class="data-desc">相手にガードされた時、ヒットした時の「硬直差」や「やられ状態（ダウンなど）」を示します。</p>
+                </div>
+                <div class="data-box">
+                    <span class="data-title">備考</span>
+                    <p class="data-desc">その技が持つ特性や、連続ヒットの有無、ディレイ幅の情報などを記載しています。<br>ディレイ幅は通常ヒット時のフレーム幅を記載しています。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: ステータスアイコン -->
+        <section class="info-card">
+            <h3 class="card-title zinc">
+                <span class="title-accent zinc"></span>
+                ステータスアイコン一覧
+            </h3>
+            <p class="card-text">
+                フレームデータにあるカラフルなバッジ（ステータス）は、その技が持つ特殊な属性や効果を表しています。
+            </p>
+            <!-- statuses.jsonから読み込み -->
+            <div id="statusList" class="status-list"></div>
+        </section>
+
+        <!-- Back Button -->
+        <div class="back-btn-container">
+            <a href="index.html" class="back-btn">
+                ◀ TOP PAGE
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">
+                TEKKEN™8 & ©Bandai Namco Entertainment Inc.<br>
+                当サイトは個人が運営する「鉄拳8」の非公式ファンサイト・攻略サイトであり、公式・公認のものではありません。
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/guide.js"></script>
+
+</body>
+</html>
