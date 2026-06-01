@@ -599,9 +599,9 @@ th {
     cursor: pointer;
 }
 /* 行全体のマウスオーバー(行hover) */
-tbody tr:hover td {
+/* tbody tr:hover td {
     background-color: var(--row-hover-bg);
-}
+} */
 /* 左アクセント */
 /* tbody tr td:first-child {
     position: relative;
