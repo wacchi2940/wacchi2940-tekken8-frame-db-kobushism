@@ -708,11 +708,12 @@ td[data-key="hit"], td[data-key="counter"], td[data-key="note"] {
     position: sticky !important;
     z-index: 5 !important;
     background: var(--sticky-bg) !important;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: none !important;
 
+    /* box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     transform: translateZ(0);
     backface-visibility: hidden;
-    will-change: transform;
+    will-change: transform; */
 }
 th.sticky-column {
     z-index: 15 !important;
