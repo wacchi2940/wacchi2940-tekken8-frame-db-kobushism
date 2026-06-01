@@ -828,7 +828,15 @@ function initTable(state) {
                     if (content instanceof Node) {
                         td.appendChild(content);
                     } else {
-                        td.textContent = content ?? "";
+                        // td.textContent = content ?? "";
+                        td.innerHTML = `
+                            <div style="
+                                position:relative;
+                                z-index:9999;
+                            ">
+                                ${content ?? ""}
+                            </div>
+                        `;
                     }
                 }
                 tr.appendChild(td);
@@ -1700,8 +1708,8 @@ function applyStickyColumns(state) {
             if (!cell) return;
 
             cell.classList.add('sticky-column');
+            cell.style.outline = "2px solid red"; // テスト
             cell.style.transform = "translateZ(0)"; // テスト
-            cell.style.backgroundColor = "green"; // テスト
             cell.style.left = `${left}px`;
 
             left += widths[idx];
@@ -1719,7 +1727,7 @@ function applyStickyColumns(state) {
                 'sticky-column',
                 'sticky-column-right'
             );
-
+            cell.style.outline = "2px solid blue"; // テスト
             cell.style.right = `${right}px`;
 
             right += widths[idx];
