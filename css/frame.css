@@ -563,6 +563,8 @@ input[type="checkbox"]:checked + .toggle-switch::after {
     background: var(--container-bg);
     box-shadow: var(--shadow-md);
     scroll-behavior: smooth;
+
+    transform: translateZ(0);
 }
 /* テーブル（表全体） */
 table {
