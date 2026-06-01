@@ -757,9 +757,8 @@ function initTable(state) {
         } else {
 
             const tr = document.createElement('tr');
-
-            // const isVisible = matchesSearch(item, state.searchQuery);
-            const isVisible = matchesSearch(item, app.state.searchQuery,app.state.searchTarget);
+            // const isVisible = matchesSearch(item, app.state.searchQuery,app.state.searchTarget);
+            const isVisible = true;
 
             if (!isVisible) tr.classList.add('hidden-row');
             else subHeaderHasMatch = true;
@@ -1702,7 +1701,7 @@ function applyStickyColumns(state) {
 
             cell.classList.add('sticky-column');
             cell.style.transform = "translateZ(0)"; // テスト
-            cell.style.backgroundColor = "blue"; // テスト
+            cell.style.backgroundColor = "green"; // テスト
             cell.style.left = `${left}px`;
 
             left += widths[idx];
