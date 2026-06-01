@@ -574,8 +574,15 @@ function setupEventListeners(app) {
                     currentMobile;
                 updateViewUI();
                 app.render();
+                // requestAnimationFrame(() => {
+                //     applyStickyColumns(app.state);
+                // });
                 requestAnimationFrame(() => {
-                    applyStickyColumns(app.state);
+                    applyStickyColumns(state);
+
+                    setTimeout(() => {
+                        applyStickyColumns(state);
+                    }, 500);
                 });
             }
         }, 150)
