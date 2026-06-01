@@ -1384,7 +1384,7 @@ function createTextSpan(text) {
 // }
 // githubnの画像を読み込むver
 function createIcon(iconName, alt = '') {
-    const COMMAND_ICON_BASE_URL = 'https://wacchi2940.github.io/TEST/images/Command';
+    const COMMAND_ICON_BASE_URL = 'https://wacchi2940.github.io/wacchi2940-tekken8-frame-db-kobushism/images/Command';
     const img = document.createElement('img');
 
     img.className = 'command-icon';
