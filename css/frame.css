@@ -712,9 +712,10 @@ td[data-key="hit"], td[data-key="counter"], td[data-key="note"] {
     position: sticky !important;
     z-index: 5 !important;
     background: var(--sticky-bg) !important;
-    transform: translateZ(0);
+    contain: paint;
+    /* transform: translateZ(0);
     will-change: transform;
-    /* box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     transform: translateZ(0);
     backface-visibility: hidden;
     will-change: transform; */
