@@ -1701,7 +1701,7 @@ function applyStickyColumns(state) {
             if (!cell) return;
 
             cell.classList.add('sticky-column');
-            cell.style.backgroundColor = "blue"; // テスト
+            cell.style.backgroundColor = "green"; // テスト
             cell.style.left = `${left}px`;
 
             left += widths[idx];
