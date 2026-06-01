@@ -603,7 +603,7 @@ tbody tr:hover td {
     background-color: var(--row-hover-bg);
 }
 /* 左アクセント */
-tbody tr td:first-child {
+/* tbody tr td:first-child {
     position: relative;
 }
 tbody tr:hover td:first-child::before {
@@ -616,7 +616,7 @@ tbody tr:hover td:first-child::before {
     border-radius: 0 2px 2px 0;
     background: var(--accent-color);
     box-shadow: var(--glow-pink);
-}
+} */
 
 /* =========================================
     COLUMN WIDTH
