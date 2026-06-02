@@ -706,17 +706,19 @@ td[data-key="hit"], td[data-key="counter"], td[data-key="note"] {
 ========================================= */
 .sticky-column {
     position: sticky !important;
-    z-index: 1 !important;
+    z-index: 10 !important;
     background: var(--sticky-bg) !important;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 
     /* --- Android Chromeの歯抜け・ちらつき対策 テスト --- */
-    will-change: transform, left, right; /* ブラウザに変更を事前通知 */
-    transform: translateZ(0);            /* GPUレイヤーを強制作成 */
-    backface-visibility: hidden;         /* 裏面非表示による描画バグ防止 */
+    /* will-change: transform, left, right;  ブラウザに変更を事前通知 
+    transform: translateZ(0);             GPUレイヤーを強制作成 
+    backface-visibility: hidden;          裏面非表示による描画バグ防止  */
+    background-clip: padding-box !important; /* セルの背景描画範囲を固定し、スクロール時の消失を防ぐ */
+    isolation: isolate !important;          /* このセルを独立した描画コンテキストにし、他列の干渉を防ぐ */
 }
 th.sticky-column {
-    z-index: 15 !important;
+    z-index: 20 !important;
     background: var(--table-head-bg) !important;
 }
 .sticky-column-right {
@@ -739,10 +741,16 @@ th.sticky-column {
     color: var(--sub-header-text);
     font-weight: bold;
     cursor: pointer;
+    /*テスト*/
+    z-index: 1;
 }
 .sub-header td {
     padding: 0;
     background: var(--sub-header-bg) !important;
+    /*テスト*/
+    position: sticky;
+    left: 0;
+    width: 100%;
 }
 .sub-header-content {
     position: sticky;
