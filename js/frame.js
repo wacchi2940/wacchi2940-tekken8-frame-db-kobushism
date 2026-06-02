@@ -1585,9 +1585,6 @@ function processDamageNode(damage) {
 function applyStickyColumns(state) {
 
     const table = document.getElementById('data-table');
-    //テスト追記
-    const resizeObserver = new ResizeObserver(() => {applyStickyColumns(app.state);});
-    resizeObserver.observe(table);
     const headerRow = document.getElementById('table-header');
 
     if (!headerRow) return;
