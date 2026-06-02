@@ -1622,8 +1622,8 @@ function applyStickyColumns(state) {
 
         cell.style.left = '';
         cell.style.right = '';
-        cell.style.transform = '';
-        cell.style.willChange = '';
+        // cell.style.transform = '';
+        // cell.style.willChange = '';
     });
 
     const rows = table.querySelectorAll('tr');
