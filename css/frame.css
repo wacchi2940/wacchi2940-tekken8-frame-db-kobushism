@@ -563,8 +563,6 @@ input[type="checkbox"]:checked + .toggle-switch::after {
     background: var(--container-bg);
     box-shadow: var(--shadow-md);
     scroll-behavior: smooth;
-
-    transform: translateZ(0);
 }
 /* テーブル（表全体） */
 table {
@@ -575,8 +573,6 @@ table {
     white-space: nowrap;
     color: var(--text-color);
     text-align: left;
-
-    transform: translateZ(0);
 }
 /* 行全体 */
 tr:nth-child(even) {
@@ -713,7 +709,6 @@ td[data-key="hit"], td[data-key="counter"], td[data-key="note"] {
     z-index: 5 !important;
     background: var(--sticky-bg) !important;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    contain: paint;
 }
 th.sticky-column {
     z-index: 15 !important;
