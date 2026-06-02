@@ -1609,7 +1609,9 @@ function applyStickyColumns(state) {
             widths[i] = 0;
             continue;
         }
-        widths[i] = cell.getBoundingClientRect().width;
+        // widths[i] = cell.getBoundingClientRect().width;
+        //テスト
+        widths[i] = Math.ceil(cell.getBoundingClientRect().width);
     }
 
     // ===== cstikyセルだけリセット =====
