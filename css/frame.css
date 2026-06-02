@@ -722,6 +722,14 @@ th.sticky-column {
 .sticky-column-right {
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
 }
+/* --- Android Chromeの歯抜け・ちらつき対策 テスト --- */
+#data-table tr, 
+#data-table td, 
+#data-table th {
+    /* 画面外に出ても描画状態を保持させる */
+    content-visibility: visible !important;
+    contain: none !important;
+}
 
 /* =========================================
     SUB HEADER(サブヘッダー設定)
