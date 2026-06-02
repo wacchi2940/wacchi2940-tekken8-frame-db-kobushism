@@ -589,34 +589,6 @@ function setupEventListeners(app) {
     );
 
     // =====================================
-    // Android Chrome sticky対策 テスト
-    // =====================================
-    const tableContainer =
-        document.getElementById('main-container');
-
-    if (tableContainer) {
-
-        let stickyRefreshTimer;
-
-        tableContainer.addEventListener(
-            'scroll',
-            () => {
-
-                clearTimeout(stickyRefreshTimer);
-
-                stickyRefreshTimer = setTimeout(() => {
-
-                    console.log("sticky refresh");
-
-                    applyStickyColumns(app.state);
-
-                }, 100);
-
-            }
-        );
-    }
-
-    // =====================================
     // Scroll To Top Button(ページ上部に戻るボタン)
     // =====================================
     const scrollTopButton = document.getElementById('scrollToTopButton');
@@ -844,11 +816,6 @@ function initTable(state) {
     });
 
     tableBody.appendChild(fragment);
-
-    // テスト
-    // setTimeout(() => {
-    //     applyStickyColumns(state);
-    // }, 100);
 
     if (!subHeaderHasMatch && currentSubHeader) {
         currentSubHeader.classList.add('hidden-row');
@@ -1712,10 +1679,6 @@ function applyStickyColumns(state) {
 
             cell.classList.add('sticky-column');
             cell.style.left = `${left}px`;
-            //テスト追記
-            // cell.style.willChange = "transform";
-            // cell.style.transform = "translateX(0)";
-            // cell.style.transform = "translate3d(0,0,0)";
 
             left += widths[idx];
         });
@@ -1736,8 +1699,7 @@ function applyStickyColumns(state) {
 
             right += widths[idx];
         });
-        //テスト追記
-        // row.offsetHeight;
+
     });
 }
 
