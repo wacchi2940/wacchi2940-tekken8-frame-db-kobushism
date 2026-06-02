@@ -599,11 +599,11 @@ th {
     cursor: pointer;
 }
 /* 行全体のマウスオーバー(行hover) */
-/* tbody tr:hover td {
+tbody tr:hover td {
     background-color: var(--row-hover-bg);
-} */
+}
 /* 左アクセント */
-/* tbody tr td:first-child {
+tbody tr td:first-child {
     position: relative;
 }
 tbody tr:hover td:first-child::before {
@@ -616,7 +616,7 @@ tbody tr:hover td:first-child::before {
     border-radius: 0 2px 2px 0;
     background: var(--accent-color);
     box-shadow: var(--glow-pink);
-} */
+}
 
 /* =========================================
     COLUMN WIDTH
@@ -712,13 +712,8 @@ td[data-key="hit"], td[data-key="counter"], td[data-key="note"] {
     position: sticky !important;
     z-index: 5 !important;
     background: var(--sticky-bg) !important;
-    contain: paint;
-    /* transform: translateZ(0);
-    will-change: transform;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    will-change: transform; */
+    contain: paint;
 }
 th.sticky-column {
     z-index: 15 !important;
