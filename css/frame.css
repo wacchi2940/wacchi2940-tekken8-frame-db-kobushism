@@ -569,8 +569,7 @@ table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    table-layout: fixed;
-    /* table-layout: auto; */
+    table-layout: auto;
     white-space: nowrap;
     color: var(--text-color);
     text-align: left;
@@ -707,7 +706,7 @@ td[data-key="hit"], td[data-key="counter"], td[data-key="note"] {
 ========================================= */
 .sticky-column {
     position: sticky !important;
-    z-index: 5 !important;
+    z-index: 1 !important;
     background: var(--sticky-bg) !important;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
