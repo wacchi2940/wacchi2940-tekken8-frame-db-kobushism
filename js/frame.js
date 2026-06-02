@@ -560,11 +560,8 @@ function setupEventListeners(app) {
                     currentMobile;
                 updateViewUI();
                 app.render();
-                // requestAnimationFrame(() => {
-                //     applyStickyColumns(app.state);
-                // });
                 requestAnimationFrame(() => {
-                    applyStickyColumns(state);
+                    applyStickyColumns(app.state);
                 });
             }
         }, 150)
@@ -1617,6 +1614,7 @@ function applyStickyColumns(state) {
 
     // ===== cstikyセルだけリセット =====
     table.querySelectorAll('.sticky-column').forEach(cell => {
+
         cell.classList.remove(
             'sticky-column',
             'sticky-column-right'
@@ -1624,6 +1622,8 @@ function applyStickyColumns(state) {
 
         cell.style.left = '';
         cell.style.right = '';
+        cell.style.transform = '';
+        cell.style.willChange = '';
     });
 
     const rows = table.querySelectorAll('tr');
@@ -1658,6 +1658,7 @@ function applyStickyColumns(state) {
                 'sticky-column',
                 'sticky-column-right'
             );
+
             cell.style.right = `${right}px`;
 
             right += widths[idx];
