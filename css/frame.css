@@ -567,10 +567,10 @@ input[type="checkbox"]:checked + .toggle-switch::after {
 /* テーブル（表全体） */
 table {
     width: 100%;
-    /* border-collapse: separate; */
-    border-collapse: collapse;
+    border-collapse: separate;
     border-spacing: 0;
-    table-layout: auto;
+    table-layout: fixed;
+    /* table-layout: auto; */
     white-space: nowrap;
     color: var(--text-color);
     text-align: left;
