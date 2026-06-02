@@ -708,26 +708,8 @@ function initTable(state) {
 
     const displayData = state.data;
     if (!displayData.length) return;
-
-    // // モード補正
-    // const mobileToggle = document.getElementById('viewModeToggle');
-    // const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-    // if (isMobile) {
-    //     state.displayMode = mobileToggle?.checked
-    //         ? 'MobileView'
-    //         : 'CompactView';
-
-    // } else {
-    //     state.displayMode = mobileToggle?.checked
-    //         ? 'CompactView'
-    //         : 'ListView';
-    // }
-    // ↑の処理はsetupEventListeners()側に一任するから不要？
-
     const columns = getColumnsByMode(state.displayMode);
     const keys = Object.keys(columns);
-
     const fragment = document.createDocumentFragment();
 
     // ===== ヘッダー =====
@@ -753,11 +735,8 @@ function initTable(state) {
     let subHeaderHasMatch = false;
 
     displayData.forEach((item) => {
-
         const isSubHeader = item.no && /[一-龠ぁ-んァ-ヶ]/.test(item.no);
-
         if (isSubHeader) {
-
             currentSubHeaderName = item.no;
 
             const tr = document.createElement('tr');
@@ -783,8 +762,7 @@ function initTable(state) {
         } else {
 
             const tr = document.createElement('tr');
-            // const isVisible = matchesSearch(item, app.state.searchQuery,app.state.searchTarget);
-            const isVisible = true;
+            const isVisible = matchesSearch(item, app.state.searchQuery,app.state.searchTarget);
 
             if (!isVisible) tr.classList.add('hidden-row');
             else subHeaderHasMatch = true;
@@ -854,15 +832,7 @@ function initTable(state) {
                     if (content instanceof Node) {
                         td.appendChild(content);
                     } else {
-                        // td.textContent = content ?? "";
-                        td.innerHTML = `
-                            <div style="
-                                position:relative;
-                                z-index:9999;
-                            ">
-                                ${content ?? ""}
-                            </div>
-                        `;
+                        td.textContent = content ?? "";
                     }
                 }
                 tr.appendChild(td);
@@ -872,6 +842,11 @@ function initTable(state) {
     });
 
     tableBody.appendChild(fragment);
+
+    // テスト
+    // setTimeout(() => {
+    //     applyStickyColumns(state);
+    // }, 100);
 
     if (!subHeaderHasMatch && currentSubHeader) {
         currentSubHeader.classList.add('hidden-row');
@@ -1070,7 +1045,6 @@ function renderNote(item) {
 
     return fragment;
 }
-
 
 // =====================================================
 // note parsed描画
@@ -1406,6 +1380,7 @@ function createTextSpan(text) {
 }
 
 // --- コマンドアイコン補助関数 ---
+
 // Googleドライブの画像を読み込むver
 // function createIcon(id, alt) {
 //     const img = document.createElement('img');
@@ -1708,7 +1683,7 @@ function applyStickyColumns(state) {
         widths[i] = cell.getBoundingClientRect().width;
     }
 
-    // ===== stickyセルだけリセット =====
+    // ===== cstikyセルだけリセット =====
     table.querySelectorAll('.sticky-column').forEach(cell => {
         cell.classList.remove(
             'sticky-column',
@@ -1734,8 +1709,8 @@ function applyStickyColumns(state) {
             if (!cell) return;
 
             cell.classList.add('sticky-column');
-            cell.style.outline = "2px solid red"; // テスト
-            cell.style.transform = "translateZ(0)"; // テスト
+            // cell.style.outline = "2px solid red"; // テスト
+            // cell.style.transform = "translateZ(0)"; // テスト
             cell.style.left = `${left}px`;
 
             left += widths[idx];
@@ -1753,7 +1728,6 @@ function applyStickyColumns(state) {
                 'sticky-column',
                 'sticky-column-right'
             );
-            cell.style.outline = "2px solid blue"; // テスト
             cell.style.right = `${right}px`;
 
             right += widths[idx];
