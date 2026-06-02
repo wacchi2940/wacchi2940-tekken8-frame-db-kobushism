@@ -1715,7 +1715,7 @@ function applyStickyColumns(state) {
             //テスト追記
             // cell.style.willChange = "transform";
             // cell.style.transform = "translateX(0)";
-            cell.style.transform = "translate3d(0,0,0)";
+            // cell.style.transform = "translate3d(0,0,0)";
 
             left += widths[idx];
         });
@@ -1736,7 +1736,8 @@ function applyStickyColumns(state) {
 
             right += widths[idx];
         });
-        row.offsetHeight; // テスト
+        //テスト追記
+        // row.offsetHeight;
     });
 }
 
