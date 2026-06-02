@@ -1734,6 +1734,7 @@ function applyStickyColumns(state) {
 
             right += widths[idx];
         });
+        row.offsetHeight;
     });
 }
 
