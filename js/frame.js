@@ -606,6 +606,8 @@ function setupEventListeners(app) {
 
                 stickyRefreshTimer = setTimeout(() => {
 
+                    console.log("sticky refresh");
+
                     applyStickyColumns(app.state);
 
                 }, 100);
