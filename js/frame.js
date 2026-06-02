@@ -1337,8 +1337,8 @@ function createIcon(iconName, alt = '') {
     img.src = `${COMMAND_ICON_BASE_URL}/${iconName}`;
     img.alt = alt;
 
-    img.loading = 'lazy'; // 画面外なら後で読み込む
-    img.decoding = 'async'; // 画像デコードで描画を止めにくくする
+    // img.loading = 'lazy'; // 画面外なら後で読み込む
+    // img.decoding = 'async'; // 画像デコードで描画を止めにくくする
 
     img.onerror = () => {
         img.style.display = 'none';
