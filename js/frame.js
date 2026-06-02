@@ -6,26 +6,16 @@ let app;
 // 各キャラクターのtxt(json難読化後のファイル)読み込み
 async function loadData() {
     // console.log("loadData start");
-
     const params = new URLSearchParams(location.search);
     // console.log("params ok");
-
     const character = params.get('char') || 'lili';
     // console.log("character =", character);
-
     const response = await fetch(`data/${character}.txt`);
-        // console.log("before fetch");
-
+    // console.log("before fetch");
     const base64 = await response.text();
     const binary = atob(base64);
-    const bytes = Uint8Array.from(
-        binary,
-        c => c.charCodeAt(0)
-    );
-
-    const jsonText =
-        new TextDecoder('utf-8').decode(bytes);
-
+    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+    const jsonText = new TextDecoder('utf-8').decode(bytes);
     return JSON.parse(jsonText);
 }
 
@@ -33,16 +23,12 @@ async function loadData() {
 async function updatePageTitle(characterId) {
     const response = await fetch('data/characters.json');
     const characters = await response.json();
-    const character = characters.find(
-            c => c.id === characterId
-        );
+    const character = characters.find(c => c.id === characterId);
     if (!character) return;
     document.title = `${character.jpName} (${character.name}) フレーム表 - 鉄拳8フレーム情報DB KOBUSHISM`;
 
     // メタ情報
-    const desc = document.querySelector(
-        'meta[name="description"]'
-    );
+    const desc = document.querySelector('meta[name="description"]');
     if (desc) {
         desc.content = `鉄拳8 ${character.jpName}のフレーム表。発生・ガード・ヒット・カウンター・ヒートシステムを掲載。`;
     }
@@ -579,10 +565,6 @@ function setupEventListeners(app) {
                 // });
                 requestAnimationFrame(() => {
                     applyStickyColumns(state);
-
-                    setTimeout(() => {
-                        applyStickyColumns(state);
-                    }, 500);
                 });
             }
         }, 150)
@@ -624,8 +606,10 @@ function setupEventListeners(app) {
     }
 
 }
-// ===== toggleイベント =====
-// ：開閉UI
+
+// ==============================
+//   toggleイベント(UI開閉) 
+// ==============================
 
 // サブヘッダー（「ヒートシステム」「通常技」など）の開閉機能
 function toggleSection(headerRow) {
@@ -662,7 +646,6 @@ function toggleAllCards() {
                 : 'すべて開く';
     }
 }
-
 
 // ==============================
 //  描画エントリーポイント（画面を組み立てる中心）
@@ -1349,24 +1332,6 @@ function createTextSpan(text) {
 }
 
 // --- コマンドアイコン補助関数 ---
-
-// Googleドライブの画像を読み込むver
-// function createIcon(id, alt) {
-//     const img = document.createElement('img');
-//     img.className = 'command-icon';
-
-//     const safeId = safeImageId(id);
-//     if (!safeId) return document.createTextNode('');
-
-//     img.loading = 'lazy'; // 画面外なら後で読み込む
-//     img.decoding = 'async'; // 画像デコードで描画を止めにくくする
-
-//     img.src = `https://lh3.googleusercontent.com/d/${safeId}`;
-//     img.alt = alt || '';
-
-//     return img;
-// }
-// githubnの画像を読み込むver
 function createIcon(iconName, alt = '') {
     const COMMAND_ICON_BASE_URL = 'https://wacchi2940.github.io/wacchi2940-tekken8-frame-db-kobushism/images/Command';
     const img = document.createElement('img');
@@ -1559,7 +1524,6 @@ function renderMobileCard(item) {
         createLabeledRow(
             ['ガード', 'ヒット', 'カウンター'],
             [
-                // document.createTextNode(item.guard ?? ''), // 他の書き方に統一
                 renderGuard(item),
                 renderHit(item),
                 renderCounter(item)
@@ -1621,6 +1585,9 @@ function processDamageNode(damage) {
 function applyStickyColumns(state) {
 
     const table = document.getElementById('data-table');
+    //テスト追記
+    const resizeObserver = new ResizeObserver(() => {applyStickyColumns(app.state);});
+    resizeObserver.observe(table);
     const headerRow = document.getElementById('table-header');
 
     if (!headerRow) return;
@@ -1640,7 +1607,6 @@ function applyStickyColumns(state) {
     const widths = [];
 
     for (let i = 0; i < totalCols; i++) {
-        // widths[i] = headerRow.cells[i]?.offsetWidth || 0;
         const cell = headerRow.cells[i];
         if (
             !cell ||
@@ -1699,7 +1665,6 @@ function applyStickyColumns(state) {
 
             right += widths[idx];
         });
-
     });
 }
 
