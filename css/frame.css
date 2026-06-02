@@ -709,6 +709,11 @@ td[data-key="hit"], td[data-key="counter"], td[data-key="note"] {
     z-index: 1 !important;
     background: var(--sticky-bg) !important;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+
+    /* --- Android Chromeの歯抜け・ちらつき対策 テスト --- */
+    will-change: transform, left, right; /* ブラウザに変更を事前通知 */
+    transform: translateZ(0);            /* GPUレイヤーを強制作成 */
+    backface-visibility: hidden;         /* 裏面非表示による描画バグ防止 */
 }
 th.sticky-column {
     z-index: 15 !important;
