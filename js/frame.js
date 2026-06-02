@@ -589,6 +589,32 @@ function setupEventListeners(app) {
     );
 
     // =====================================
+    // Android Chrome sticky対策 テスト
+    // =====================================
+    const tableContainer =
+        document.getElementById('main-container');
+
+    if (tableContainer) {
+
+        let stickyRefreshTimer;
+
+        tableContainer.addEventListener(
+            'scroll',
+            () => {
+
+                clearTimeout(stickyRefreshTimer);
+
+                stickyRefreshTimer = setTimeout(() => {
+
+                    applyStickyColumns(app.state);
+
+                }, 100);
+
+            }
+        );
+    }
+
+    // =====================================
     // Scroll To Top Button(ページ上部に戻るボタン)
     // =====================================
     const scrollTopButton = document.getElementById('scrollToTopButton');
