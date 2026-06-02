@@ -1711,9 +1711,10 @@ function applyStickyColumns(state) {
             if (!cell) return;
 
             cell.classList.add('sticky-column');
-            // cell.style.outline = "2px solid red"; // テスト
-            // cell.style.transform = "translateZ(0)"; // テスト
             cell.style.left = `${left}px`;
+            //テスト追記
+            cell.style.willChange = "transform";
+            cell.style.transform = "translateX(0)";
 
             left += widths[idx];
         });
@@ -1731,10 +1732,13 @@ function applyStickyColumns(state) {
                 'sticky-column-right'
             );
             cell.style.right = `${right}px`;
+            //テスト追記
+            cell.style.willChange = "transform";
+            cell.style.transform = "translateX(0)";
 
             right += widths[idx];
         });
-        row.offsetHeight;
+        row.offsetHeight; // テスト
     });
 }
 
