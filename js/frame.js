@@ -1713,8 +1713,9 @@ function applyStickyColumns(state) {
             cell.classList.add('sticky-column');
             cell.style.left = `${left}px`;
             //テスト追記
-            cell.style.willChange = "transform";
-            cell.style.transform = "translateX(0)";
+            // cell.style.willChange = "transform";
+            // cell.style.transform = "translateX(0)";
+            cell.style.transform = "translate3d(0,0,0)";
 
             left += widths[idx];
         });
@@ -1732,9 +1733,6 @@ function applyStickyColumns(state) {
                 'sticky-column-right'
             );
             cell.style.right = `${right}px`;
-            //テスト追記
-            cell.style.willChange = "transform";
-            cell.style.transform = "translateX(0)";
 
             right += widths[idx];
         });
