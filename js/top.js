@@ -1,5 +1,5 @@
 // グループごとのセクション構造を生成するヘルパー関数
-function renderGroup(groupName, characters, parentContainer, gridClass) {
+function renderGroup(groupName, characters, parentContainer, gridClass, latestVersion) {
     const section = document.createElement('section');
     section.className = "season-section";
 
@@ -84,8 +84,25 @@ function renderGroup(groupName, characters, parentContainer, gridClass) {
 
                 <!-- ステータスラベル -->
                 <div class="card-status">
-                    ${isReady
-                        ? '<span class="badge badge-ready">READY</span>'
+                    ${
+                        isReady
+                        ? (() => {
+                            const isLatest =
+                                compareVersion(
+                                    character.ver,
+                                    latestVersion
+                                ) >= 0;
+
+                            return `
+                                <span class="badge ${
+                                    isLatest
+                                        ? 'badge-ready'
+                                        : 'badge-prep'
+                                }">
+                                    Ver.${character.ver}
+                                </span>
+                            `;
+                        })()
                         : '<span class="badge badge-prep">PREP</span>'
                     }
                 </div>
@@ -111,8 +128,14 @@ async function loadHistory() {
     return await response.json();
 }
 
+// version.json読み込み関数
+async function loadVersion() {
+    const response = await fetch('data/version.json');
+    return await response.json();
+}
+
 // キャラクター選択カードの描画処理
-function renderCharacters(characters, histories) {
+function renderCharacters(characters, histories, latestVersion) {
     const groupedCharacters = {};
     characters.forEach(character => {
         const season = character.season;
@@ -127,22 +150,22 @@ function renderCharacters(characters, histories) {
     mainContainer.innerHTML = ""; 
 
     // 1. BASE GAME（横最大8列表示）
-    renderGroup("BASE GAME", groupedCharacters["BASE GAME"], mainContainer, "base-grid");
+    renderGroup("BASE GAME", groupedCharacters["BASE GAME"], mainContainer, "base-grid", latestVersion);
 
     // 2. SEASON 1 と SEASON 2 を横並びの2カラム構成にする
     const seasonRow1 = document.createElement('div');
     seasonRow1.className = "season-row-container";
     mainContainer.appendChild(seasonRow1);
 
-    renderGroup("SEASON 1", groupedCharacters["SEASON 1"], seasonRow1, "season-grid");
-    renderGroup("SEASON 2", groupedCharacters["SEASON 2"], seasonRow1, "season-grid");
+    renderGroup("SEASON 1", groupedCharacters["SEASON 1"], seasonRow1, "season-grid", latestVersion);
+    renderGroup("SEASON 2", groupedCharacters["SEASON 2"], seasonRow1, "season-grid", latestVersion);
 
     // 3. SEASON 3 ＆ プレースホルダーの横並び構成
     const seasonRow2 = document.createElement('div');
     seasonRow2.className = "season-row-container";
     mainContainer.appendChild(seasonRow2);
 
-    renderGroup("SEASON 3", groupedCharacters["SEASON 3"], seasonRow2, "season-grid");
+    renderGroup("SEASON 3", groupedCharacters["SEASON 3"], seasonRow2, "season-grid", latestVersion);
 
     // 余白エリア（SEASON 4 COMING SOON）
     const placeholderBox = document.createElement('div');
@@ -156,44 +179,7 @@ function renderCharacters(characters, histories) {
     // 4. 新設：更新履歴（UPDATE HISTORY）セクション
     const historySection = document.createElement('section');
     historySection.className = "history-section";
-    // historySection.innerHTML = `
-    //     <div class="history-title-wrap">
-    //         <h3 class="history-heading oswald italic">
-    //             <span class="history-accent-line"></span>
-    //             UPDATE HISTORY
-    //         </h3>
-    //         <div class="header-line"></div>
-    //     </div>
-        
-    //     <div class="history-container">
-    //         <!-- 履歴 1 -->
-    //         <div class="history-item">
-    //             <div class="history-left">
-    //                 <span class="history-date oswald">2026.XX.XX</span>
-    //                 <p class="history-text">テストデータ</p>
-    //             </div>
-    //             <span class="history-tag">SYSTEM</span>
-    //         </div>
-            
-    //         <!-- 履歴 2 -->
-    //         <div class="history-item">
-    //             <div class="history-left">
-    //                 <span class="history-date muted oswald">2026.XX.XX</span>
-    //                 <p class="history-text">「LILI -リリ-」「KUNIMITSU -州光-」のフレームデータ公開。</p>
-    //             </div>
-    //             <span class="history-tag">DATABASE</span>
-    //         </div>
 
-    //         <!-- 履歴 3 -->
-    //         <div class="history-item">
-    //             <div class="history-left">
-    //                 <span class="history-date muted oswald">2026.XX.XX</span>
-    //                 <p class="history-text">「鉄拳8フレーム情報DB(仮)」運用開始。</p>
-    //             </div>
-    //             <span class="history-tag">RELEASE</span>
-    //         </div>
-    //     </div>
-    // `;
     const historyItems = histories.map(history => `
         <div class="history-item">
             <div class="history-left">
@@ -244,13 +230,29 @@ function showToast(message) {
     }, 3000);
 }
 
+// version比較
+function compareVersion(v1, v2) {
+    const a = v1.split('.').map(Number);
+    const b = v2.split('.').map(Number);
+    const len = Math.max(a.length, b.length);
+
+    for (let i = 0; i < len; i++) {
+        const x = a[i] || 0;
+        const y = b[i] || 0;
+        if (x > y) return 1;
+        if (x < y) return -1;
+    }
+    return 0;
+}
+
 // 初期ロード処理
 window.onload = async function() {
     const characters = await loadCharacters();
     const histories = await loadHistory();
+    const versionData = await loadVersion();
 
     // console.log(characters);
-    renderCharacters(characters, histories);
+    renderCharacters(characters, histories, versionData.latest);
 
     setTimeout(() => {
         const loader = document.getElementById('loader');
