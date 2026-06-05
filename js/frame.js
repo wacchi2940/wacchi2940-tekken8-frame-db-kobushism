@@ -10,7 +10,7 @@ async function loadData() {
     // console.log("params ok");
     const character = params.get('char') || 'lili';
     // console.log("character =", character);
-    const response = await fetch(`data/${character}.txt`);
+    const response = await fetch(`data/characters/${character}.txt`);
     // console.log("before fetch");
     const base64 = await response.text();
     const binary = atob(base64);
@@ -49,21 +49,13 @@ const labelMap = {
 // ステータス項目
 const statusKeys = ['HM','TR','PW','HE','HT','ER','JS','CS','WB','FB'];
 
-// ステータス項目に紐づくカラーコード
-const statusColors = {
-    'HM': '#2196F3','TR': '#FF5252','PW': '#C62828','HE': '#B000FF',
-    'HT': '#7C4DFF','ER': '#FF8F00','JS': '#D81B60','CS': '#00838F',
-    'WB': '#00C853','FB': '#FFD600','RH': '#2196F3','LH': '#2196F3',
-    'RA': '#C62828','HB': '#B000FF','HD': '#7C4DFF','HS': '#7C4DFF'
-};
-
 // ===== statusキー固定（安全版） =====
 const statusSourceKeys = [
     'status1','status2','status3','status4','status5',
     'status6','status7','status8','status9','status10'
 ];
 
-// ===== status説明 =====
+// ===== status情報取り込み(カラーコード、チップ説明) =====
 let statusInfoMap = {};
 
 async function loadStatuses() {
@@ -73,7 +65,8 @@ async function loadStatuses() {
     statuses.forEach(status => {
         statusInfoMap[status.code] = {
             title: status.title,
-            description: status.description
+            description: status.description,
+            color: status.color
         };
     });
 }
@@ -82,6 +75,7 @@ async function loadStatuses() {
 const frameTokenInfoMap  = {
     Sm: {description: '尻もちやられ(強制しゃがみ、ガード可能な硬直)'},
     HE: {description: 'ヒートダッシュ時のみ'},
+    GB: {description: 'ガードブレイク'},
     S: {description: '強制しゃがみ'},
     G: {description: 'ガード可能な硬直'},
     K: {description: 'きりもみやられ(ガード可能な硬直)'},
@@ -97,6 +91,7 @@ const VIEW_MODES = {
     COMPACT: 'CompactView',
     LIST: 'ListView'
 };
+
 
 // ===============================
 // columns定義（displayMode別）
@@ -370,10 +365,10 @@ function setupEventListeners(app) {
             }
         }
     );
+
     // =====================================
     // view切替
     // =====================================
-
     const viewToggle = document.getElementById('viewModeToggle');
     const viewLabel = document.getElementById('viewModeLabel');
     const cardControls = document.getElementById('cardControls');
@@ -1337,8 +1332,8 @@ function createIcon(iconName, alt = '') {
     img.src = `${COMMAND_ICON_BASE_URL}/${iconName}`;
     img.alt = alt;
 
-    // img.loading = 'lazy'; // 画面外なら後で読み込む
-    // img.decoding = 'async'; // 画像デコードで描画を止めにくくする
+    img.loading = 'lazy'; // 画面外なら後で読み込む
+    img.decoding = 'async'; // 画像デコードで描画を止めにくくする
 
     img.onerror = () => {
         img.style.display = 'none';
@@ -1431,7 +1426,7 @@ function createStatusBadge(text) {
     badge.textContent = text;
 
     badge.style.backgroundColor =
-        statusColors[label] || '#9e9e9e'; // ステータスカラーコードを参照して色付け
+        statusInfoMap[label]?.color || '#9e9e9e'; // ステータスカラーコードを参照して色付け
 
     const info = statusInfoMap[label];
 
@@ -1609,23 +1604,17 @@ function applyStickyColumns(state) {
             widths[i] = 0;
             continue;
         }
-        // widths[i] = cell.getBoundingClientRect().width;
-        //テスト
         widths[i] = Math.ceil(cell.getBoundingClientRect().width);
     }
 
     // ===== cstikyセルだけリセット =====
     table.querySelectorAll('.sticky-column').forEach(cell => {
-
         cell.classList.remove(
             'sticky-column',
             'sticky-column-right'
         );
-
         cell.style.left = '';
         cell.style.right = '';
-        // cell.style.transform = '';
-        // cell.style.willChange = '';
     });
 
     const rows = table.querySelectorAll('tr');
@@ -1964,7 +1953,7 @@ window.onload = async () => {
     const params = new URLSearchParams(location.search);
     const characterId = params.get('char') || 'lili';
     await updatePageTitle(characterId);
-     const data = await loadData();
+    const data = await loadData();
 
     await createCharacterMenu();
     await loadStatuses();
