@@ -76,8 +76,8 @@
     "jpName": "ファラン",
     "id": "hwoarang",
     "image": "Hwoarang.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -85,8 +85,8 @@
     "jpName": "ジャック8",
     "id": "jack8",
     "image": "Jack8.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -94,8 +94,8 @@
     "jpName": "仁",
     "id": "jin",
     "image": "Jin.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -103,8 +103,8 @@
     "jpName": "準",
     "id": "jun",
     "image": "Jun.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -112,8 +112,8 @@
     "jpName": "一八",
     "id": "kazuya",
     "image": "Kazuya.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -121,8 +121,8 @@
     "jpName": "キング",
     "id": "king",
     "image": "King.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -130,8 +130,8 @@
     "jpName": "クマ",
     "id": "kuma",
     "image": "Kuma.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -139,8 +139,8 @@
     "jpName": "パンダ",
     "id": "panda",
     "image": "Panda.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -148,8 +148,8 @@
     "jpName": "ラース",
     "id": "lars",
     "image": "Lars.webp",
-    "status": "prep",
-    "ver": "3.00.02",
+    "status": "ready",
+    "ver": "3.01.01",
     "season": "BASE GAME"
   },
   {
@@ -157,7 +157,7 @@
     "jpName": "ロウ",
     "id": "law",
     "image": "Law.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -166,7 +166,7 @@
     "jpName": "リー",
     "id": "lee",
     "image": "Lee.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -175,7 +175,7 @@
     "jpName": "レオ",
     "id": "leo",
     "image": "Leo.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -184,7 +184,7 @@
     "jpName": "リロイ",
     "id": "leroy",
     "image": "Leroy.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -202,7 +202,7 @@
     "jpName": "ニーナ",
     "id": "nina",
     "image": "Nina.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -211,7 +211,7 @@
     "jpName": "ポール",
     "id": "paul",
     "image": "Paul.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -220,7 +220,7 @@
     "jpName": "レイブン",
     "id": "raven",
     "image": "Raven.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -229,7 +229,7 @@
     "jpName": "麗奈",
     "id": "reina",
     "image": "Reina.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -238,7 +238,7 @@
     "jpName": "シャヒーン",
     "id": "shaheen",
     "image": "Shaheen.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -247,7 +247,7 @@
     "jpName": "スティーブ",
     "id": "steve",
     "image": "Steve.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -256,7 +256,7 @@
     "jpName": "ヴィクター",
     "id": "victor",
     "image": "Victor.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -265,7 +265,7 @@
     "jpName": "シャオユウ",
     "id": "xiaoyu",
     "image": "Xiaoyu.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -274,7 +274,7 @@
     "jpName": "吉光",
     "id": "yoshimitsu",
     "image": "Yoshimitsu.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
@@ -283,7 +283,7 @@
     "jpName": "ザフィーナ",
     "id": "zafina",
     "image": "Zafina.webp",
-    "status": "prep",
+    "status": "ready",
     "ver": "3.00.02",
     "season": "BASE GAME"
   },
