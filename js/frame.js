@@ -884,6 +884,11 @@ function renderTotal(item) {
 
 // --- guard ---
 function renderGuard(item) {
+    // ★★★カード表示の際に画像化★★★
+    if (Array.isArray(item?.guard_parsed)) {
+        return createParsedNode(item.guard_parsed);
+    }
+    // ★★★動かなかったら↑削除★★★
     return createFrameDataNode(item?.guard ?? "");
 }
 
@@ -1291,6 +1296,15 @@ function createParsedNode(parsedData, maxWidth = 400) {
         smartParsedBreakIndex(parsedData, maxWidth);
 
     parsedData.forEach((part, index) => {
+
+        // ★★★"/" は表示せず、強制改行★★★
+        if (part.char === "/") {
+            container.appendChild(
+                document.createElement('br')
+            );
+            return;
+        }
+        // ★★★動かなかったら削除↑★★★
 
         container.appendChild(
             createParsedPart(part, part.char)
