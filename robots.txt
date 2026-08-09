@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://wacchi2940.github.io/wacchi2940-tekken8-frame-db-kobushism/sitemap.xml
