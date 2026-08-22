@@ -194,7 +194,7 @@
     "id": "lili",
     "image": "Lili.webp",
     "status": "ready",
-    "ver": "3.01.01",
+    "ver": "3.02.01",
     "season": "BASE GAME"
   },
   {
@@ -373,8 +373,8 @@
     "jpName": "ボブ",
     "id": "bob",
     "image": "Bob.webp",
-    "status": "prep",
-    "ver": "0.00.00",
+    "status": "ready",
+    "ver": "3.02.01",
     "season": "SEASON 3"
   },
   {
